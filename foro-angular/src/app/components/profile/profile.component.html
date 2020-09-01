@@ -1,0 +1,39 @@
+<div class="col-lg-12 mt-3" *ngIf="!user && !topics">
+  <img src="assets/img/preloader.gif" />
+</div>
+
+<div class="col-lg-12 mt-3" *ngIf="user && topics">
+  <!-- imagen -->
+  <div class="avatar_mask_list float-left mr-3" *ngIf="image">
+    <img src="{{ url + 'avatar/' + image }}" />
+  </div>
+  <div class="avatar_mask_list float-left mr-3" *ngIf="!image">
+    <img src="assets/img/user-profile.jpg" />
+  </div>
+  <h2>{{name + ' ' + surname}}</h2>
+
+  <div class="clear-fix"></div>
+
+  <ul class="list-group list-topics mt-4 mb-5" *ngIf="topics">
+    <li class="list-group-item" *ngFor="let topic of topics">
+      <h4>
+        <a [routerLink]="['/tema', topic._id]">{{topic.title}}</a>
+      </h4>
+      <span class="badge badge-light">
+        {{ topic.date | amLocale: 'es' | amTimeAgo }}
+      </span>
+      <a [routerLink]="['/tema', topic._id]" class="btn btn-sm btn-success float-right mx-auto d-block">Leer</a>
+    </li>
+  </ul>
+
+  <ul class="list-group list-topics mt-4 mb-5" *ngIf="topics.length == 0">
+    <h3>Sin temas propios</h3>
+  </ul>
+
+  <div class="clear-fix"></div>
+
+</div>
+
+<div class="col-lg-12 mt-3" *ngIf="!topics">
+
+</div>

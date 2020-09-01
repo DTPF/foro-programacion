@@ -1,0 +1,48 @@
+<div class="col-lg-12">
+  <h3 class="mb-3">{{page_title}}</h3>
+
+  <table class="table table-hover">
+    <thead class="thead-default">
+      <tr>
+        <th>Título</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let topic of topics">
+        <td>{{topic.title}}</td>
+        <td>{{topic.date | amLocale: 'es' | amDateFormat:'LL'}}</td>
+        <td>
+          <a [routerLink]="['/panel/editar', topic._id]" class="btn btn-sm btn-warning mr-2">Editar</a>
+
+
+          <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#modal'+topic._id">Borrar</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="{{ 'modal'+topic._id }}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Eliminar tema</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ¿Seguro que quieres eliminar <b>{{topic.title}}</b>?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
+                  <a (click)="deleteTopic(topic._id)" class="btn btn-danger" data-dismiss="modal">Eliminar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,28 @@
+<div class="col-lg-12 d-flex justify-content-center">
+<div class="jumbotron jumbotron-fluid text-center mt-5">
+  <div class="container">
+    <h1 class="display-4">{{page_title}}</h1>
+    <p class="lead" *ngIf="!identity">Regístrate o logueate para acceder al foro :)</p>
+    <p class="lead" *ngIf="identity">Pon tus dudas, aprende y ayuda a tus compañeros programadores :)</p>
+    <p *ngIf="identity">
+      <a class="btn btn-primary btn-lg m-3" [routerLink]="['/temas']">
+        Ver temas
+      </a>
+      <a class="btn btn-success btn-lg m-3" [routerLink]="['/usuarios']">
+        Ver compañeros
+      </a>
+      <a class="btn btn-secondary btn-lg m-3" [routerLink]="['/panel/crear']">
+        Añade un nuevo tema
+      </a>
+    </p>
+    <p *ngIf="!identity">
+      <a class="btn btn-primary btn-lg mr-3" [routerLink]="['/login']">
+        Login
+      </a>
+      <a class="btn btn-success btn-lg mr-3" [routerLink]="['/registro']">
+        Registro
+      </a>
+    </p>
+  </div>
+</div>
+</div>

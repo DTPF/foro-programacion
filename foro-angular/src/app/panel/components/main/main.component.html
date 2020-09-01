@@ -1,0 +1,25 @@
+<div class="col-lg-4 float-left mt-3">
+
+  <h3>Panel usuario</h3>
+  <hr>
+  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+    <a class="nav-link" id="v-pills-listado-tab" data-toggle="pill" href="#v-pills-listado" role="tab"
+      aria-controls="v-pills-listado" aria-selected="true" [routerLink]="['listado']" routerLinkActive="active">
+      Mis temas
+    </a>
+    <a class="nav-link" id="v-pills-crear-tab" data-toggle="pill" href="#v-pills-crear" role="tab"
+      aria-controls="v-pills-crear" aria-selected="false" [routerLink]="['crear']" routerLinkActive="active">
+      Crear tema
+    </a>
+    <a class="nav-link" id="v-pills-ajustes-tab" data-toggle="pill" href="#v-pills-ajustes" role="tab"
+      aria-controls="v-pills-ajustes" aria-selected="false" [routerLink]="['/ajustes']" routerLinkActive="active">
+      Ajustes
+    </a>
+
+  </div>
+</div>
+
+<div class="col-lg-8 float-right mt-3">
+  <router-outlet ></router-outlet>
+</div>
